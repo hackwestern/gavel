@@ -34,7 +34,7 @@ working on the software :)
 ## Design
 
 Gavel is based on the method of pairwise comparisons. Before you use Gavel,
-it's *highly recommended* that you read about the philosophy behind the
+it's _highly recommended_ that you read about the philosophy behind the
 implementation as well as hints on how to use it in practice. Read [this blog
 post][blog-1] first, and then read [this blog post][blog-2].
 
@@ -46,10 +46,10 @@ other hackathons and events have used it too.
 Gavel is a pretty different way of doing judging. If you want to use this for
 your hackathon or event, we highly recommend that you:
 
-* Deploy it and play around with it ahead of time to get a feel for how the
-  system works
-* Read the blog posts linked above to get an idea of how to structure the
-  judging process
+-   Deploy it and play around with it ahead of time to get a feel for how the
+    system works
+-   Read the blog posts linked above to get an idea of how to structure the
+    judging process
 
 If you have any questions, feel free to [email me][email].
 
@@ -58,7 +58,7 @@ We'd really appreciate any kind of input, especially pull requests.
 
 ## Deployment
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/anishathalye/gavel/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/hackwestern/gavel/tree/master)
 
 The latest stable version is the `master` branch (and it's signed and tagged).
 Development happens in the `develop` branch.
@@ -68,8 +68,7 @@ and SciPy for math stuff. Doing a `pip --no-cache-dir install -r requirements.tx
 install all the dependencies.
 
 The application uses Postgres for the database, so you need to have that on
-your server. You need to create a database, which you can do with `createdb
-gavel` (unless you're using a different database name). Before you use the app,
+your server. You need to create a database, which you can do with `createdb gavel` (unless you're using a different database name). Before you use the app,
 you need to initialize the database by running `python initialize.py`. **Note
 that Gavel does not preserve database schema compatibility between versions.**
 
@@ -78,15 +77,13 @@ In order to send emails, you'll need to install Redis.
 When testing, you can run the app with `python runserver.py`.
 
 In production, you should use something like [Gunicorn][gunicorn] to serve
-this. You can run the app with `gunicorn -b :<PORT> -w <number of workers>
-gavel:app`. This is sufficient if you want to serve Gavel under its own domain
+this. You can run the app with `gunicorn -b :<PORT> -w <number of workers> gavel:app`. This is sufficient if you want to serve Gavel under its own domain
 (e.g. `judging.example.com`). If you are serving Gavel under a subpath, e.g.
 `example.com/judging`, you need to set the `SCRIPT_NAME` environment variable
 (e.g. by passing `-e SCRIPT_NAME=/judging` to Gunicorn). If you are running
 Gavel behind a proxy server, be sure to set `PROXY=true` in Gavel's settings.
 
-For sending emails, you'll also need to start a celery worker with `celery -A
-gavel:celery worker`.
+For sending emails, you'll also need to start a celery worker with `celery -A gavel:celery worker`.
 
 ## Configuration
 
@@ -120,24 +117,24 @@ quality (Mu).
 
 ### Admin Panel Features
 
-* If you want to (temporarily) close the judging system, click the "Close"
-  button under "Global Settings"
-* If you need to force re-send the invite email, use the "Email" button for the
-  judge in the admin panel
-* If you need to manually give a judge a login link, direct them to
-  `/login/<secret>`
-* If you want to send the next available judge to a certain project, use the
-  "Prioritize" button
-* If you need to deactivate projects or judges at any point, use the "Disable"
-  button
-* If a project hasn't been judged yet, you can delete it using the "Delete"
-  button
-* If a judge hasn't started yet, you can delete them using the "Delete" button
-* If you need to see details for a project or judge, click on the item ID in
-  the admin panel
-    * If you need to edit a project (name, location, or description), you can
-      do so on the item detail page
-* If you want to sort the items in the admin panel, click on the table headers
+-   If you want to (temporarily) close the judging system, click the "Close"
+    button under "Global Settings"
+-   If you need to force re-send the invite email, use the "Email" button for the
+    judge in the admin panel
+-   If you need to manually give a judge a login link, direct them to
+    `/login/<secret>`
+-   If you want to send the next available judge to a certain project, use the
+    "Prioritize" button
+-   If you need to deactivate projects or judges at any point, use the "Disable"
+    button
+-   If a project hasn't been judged yet, you can delete it using the "Delete"
+    button
+-   If a judge hasn't started yet, you can delete them using the "Delete" button
+-   If you need to see details for a project or judge, click on the item ID in
+    the admin panel
+    -   If you need to edit a project (name, location, or description), you can
+        do so on the item detail page
+-   If you want to sort the items in the admin panel, click on the table headers
 
 ## Development
 
